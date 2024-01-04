@@ -1,3 +1,7 @@
+using ProductAccApplication;
+using ProductAccInfra;
+using ProductAccInfra.Common;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,7 +10,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddInfrastructure("Data Source=localhost\\SQLEXPRESS;Initial Catalog=InventoryCore;Integrated Security=True;TrustServerCertificate=True");
+builder.Services.AddScoped<ITestSer,TestSer>();
+builder.Services.AddScoped<ITestRepo,TestRepo>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
