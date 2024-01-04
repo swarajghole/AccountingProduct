@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProductAccDomain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,7 @@ namespace ProductAccInfra.Common
         {
             
         }
+
+        public DbSet<TestClean> TestClean { get; set; }
     }
 }
